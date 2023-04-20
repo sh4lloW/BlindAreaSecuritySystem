@@ -34,9 +34,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         register = findViewById(R.id.btn_register);
 
         // 实例化数据库变量
-        dbHelper = new DatabaseHelper(this, "user.db", null, 1);
+        dbHelper = new DatabaseHelper(RegisterActivity.this, "user.db", null, 1);
 
-        register.setOnClickListener(this);
+        register.setOnClickListener(RegisterActivity.this);
     }
 
     @Override
@@ -48,27 +48,27 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         // 文本合法性检测
         if (TextUtils.isEmpty(usernameText)) {
-            Toast.makeText(this, "用户名不能为空", Toast.LENGTH_LONG).show();
+            Toast.makeText(RegisterActivity.this, "用户名不能为空", Toast.LENGTH_LONG).show();
             return;
         }
         if (TextUtils.isEmpty(passwordText)) {
-            Toast.makeText(this, "密码不能为空", Toast.LENGTH_LONG).show();
+            Toast.makeText(RegisterActivity.this, "密码不能为空", Toast.LENGTH_LONG).show();
             return;
         }
         if (TextUtils.isEmpty(confirmPasswordText)) {
-            Toast.makeText(this, "确认密码不能为空", Toast.LENGTH_LONG).show();
+            Toast.makeText(RegisterActivity.this, "确认密码不能为空", Toast.LENGTH_LONG).show();
             return;
         }
         if (!TextUtils.equals(passwordText, confirmPasswordText)) {
-            Toast.makeText(this, "密码不一致", Toast.LENGTH_LONG).show();
+            Toast.makeText(RegisterActivity.this, "密码不一致", Toast.LENGTH_LONG).show();
             return;
         }
 
         // 写入用户信息
         insertUserData(dbHelper.getReadableDatabase(), usernameText, passwordText);
 
-        Toast.makeText(this, "注册成功！", Toast.LENGTH_LONG).show();
-        this.finish();
+        Toast.makeText(RegisterActivity.this, "注册成功！", Toast.LENGTH_LONG).show();
+        RegisterActivity.this.finish();
     }
 
     // 插入用户数据
