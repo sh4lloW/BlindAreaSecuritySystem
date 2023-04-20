@@ -2,7 +2,10 @@ package com.example.blindareasecuritysystem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -10,10 +13,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.blindareasecuritysystem.Helper.DatabaseHelper;
+
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
 
     private EditText username, password, confirmPassword;
     private Button register;
+
+    private DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +32,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         password = findViewById(R.id.et_register_password);
         confirmPassword = findViewById(R.id.et_register_confirm_password);
         register = findViewById(R.id.btn_register);
+
+        // 实例化数据库变量
+        dbHelper = new DatabaseHelper(this, "user.db", null, 1);
 
         register.setOnClickListener(this);
     }
@@ -54,14 +64,26 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
-        // 用户信息本地存储
-        SharedPreferences sp = getSharedPreferences("UserMessage", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putString("username", usernameText);
-        editor.putString("password", passwordText);
-        editor.apply();
+        // 写入用户信息
+        insertUserData(dbHelper.getReadableDatabase(), usernameText, passwordText);
 
         Toast.makeText(this, "注册成功！", Toast.LENGTH_LONG).show();
         this.finish();
+    }
+
+    // 插入用户数据
+    private void insertUserData(SQLiteDatabase database, String username, String password) {
+        ContentValues values = new ContentValues();
+        values.put("username", username);
+        values.put("password", password);
+        database.insert("user", null, values);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (dbHelper != null) {
+            dbHelper.close();
+        }
     }
 }
