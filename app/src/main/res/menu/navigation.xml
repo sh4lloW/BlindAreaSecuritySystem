@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_my"
+        android:icon="@drawable/is_my"
+        android:title="@string/title_my"
+        />
+
+    <item
+        android:id="@+id/navigation_look"
+        android:icon="@drawable/_is_looking"
+        android:title="@string/title_look"
+        />
+    <item
+        android:id="@+id/navigation_look2"
+        android:icon="@drawable/_is_looking"
+        android:title="@string/title_look"
+        />
+</menu>

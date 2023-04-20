@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">护翼</string>
+    <string name="title_my">我的</string>
+    <string name="title_look">连接信息</string>
 </resources>
