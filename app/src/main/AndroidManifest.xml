@@ -14,6 +14,14 @@
         android:theme="@style/Theme.BlindAreaSecuritySystem"
         tools:targetApi="31">
         <activity
+            android:name=".HiCarActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="huawei.intent.action.HICAR" />
+                <category android:name="huawei.intent.category.HICAR" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".Bottomnav"
             android:exported="false">
             <meta-data
@@ -25,18 +33,21 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.huawei.multidisplay.support.multidisplay"
+            android:value="true" />
+
     </application>
 
 </manifest>
