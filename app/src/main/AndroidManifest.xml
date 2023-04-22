@@ -12,9 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BlindAreaSecuritySystem"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        tools:replace="allowBackup">
         <activity
-            android:name=".HiCarActivity"
+            android:name=".Activity.HiCarActivity"
             android:exported="false">
             <intent-filter>
                 <action android:name="huawei.intent.action.HICAR" />
@@ -22,20 +23,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Bottomnav"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".RegisterActivity"
+            android:name=".Activity.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
-            android:exported="false"></activity>
+            android:name=".Activity.LoginActivity"
+            android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

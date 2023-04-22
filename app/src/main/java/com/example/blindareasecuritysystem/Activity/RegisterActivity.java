@@ -1,11 +1,9 @@
-package com.example.blindareasecuritysystem;
+package com.example.blindareasecuritysystem.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
-import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.blindareasecuritysystem.Helper.DatabaseHelper;
+import com.example.blindareasecuritysystem.R;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
 

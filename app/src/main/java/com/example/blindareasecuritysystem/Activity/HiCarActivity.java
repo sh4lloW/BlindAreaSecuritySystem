@@ -1,8 +1,10 @@
-package com.example.blindareasecuritysystem;
+package com.example.blindareasecuritysystem.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.blindareasecuritysystem.R;
 
 public class HiCarActivity extends AppCompatActivity {
 

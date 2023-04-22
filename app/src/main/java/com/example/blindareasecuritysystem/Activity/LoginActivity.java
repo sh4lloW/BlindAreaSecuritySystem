@@ -1,4 +1,4 @@
-package com.example.blindareasecuritysystem;
+package com.example.blindareasecuritysystem.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.blindareasecuritysystem.Helper.DatabaseHelper;
+import com.example.blindareasecuritysystem.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
