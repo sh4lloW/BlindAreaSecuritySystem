@@ -1,13 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".Fragment.UserFragment">
 
-    <TextView
+    <!-- 水平线性排列 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/main_card"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/_is_looking" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="用户名："
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="最多不超过六个"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="车型："
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="car"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="云端空间："
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="xg"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="it is user" />
+        android:background="@drawable/main_card"
+        android:layout_marginTop="160px"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <Switch
+            android:id="@+id/switch_light"
+            android:layout_width="match_parent"
+            android:layout_height="150px"
+            android:drawableStart="@drawable/is_lanya"
+            android:layout_gravity="center_vertical|left"
+            android:paddingLeft="20px"
+            android:text="投影灯"
+            android:textSize="20sp"
+             />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="150px"
+                android:layout_weight="1"
+                android:drawableStart="@drawable/is_wifi"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="20px"
+                android:text="无线局域网链接"
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="150px"
+                android:layout_weight="1"
+                android:drawableEnd="@drawable/is_right"
+                android:text="CZM‘s WIFI"
+                android:gravity="center_vertical|right"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="150px"
+            android:layout_weight="1"
+            android:gravity="center_vertical|left"
+            android:drawableStart="@drawable/is_danger"
+            android:paddingLeft="20px"
+            android:text="高风险路段记录"
+            android:textSize="20sp" />
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="150px"
+                android:layout_weight="1"
+                android:drawableEnd="@drawable/is_right"
+                android:gravity="center_vertical|right"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="150px"
+                android:layout_weight="1"
+                android:gravity="center_vertical|left"
+                android:drawableStart="@drawable/is_photo"
+                android:paddingLeft="20px"
+                android:text="路况抓拍情况"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="150px"
+                android:layout_weight="1"
+                android:drawableEnd="@drawable/is_right"
+
+                android:gravity="center_vertical|right"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
