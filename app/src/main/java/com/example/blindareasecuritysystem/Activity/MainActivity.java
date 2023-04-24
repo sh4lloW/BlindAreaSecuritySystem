@@ -3,10 +3,14 @@ package com.example.blindareasecuritysystem.Activity;
 import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.RelativeSizeSpan;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
     private MenuItem menuItem;
 
-    private SearchView searchView;
-
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.content_view_pager);
         tabLayout = findViewById(R.id.content_table_layout);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        searchView = findViewById(R.id.search_main);
 
         // 添加fragment
         fragmentList = new ArrayList<>();
@@ -94,4 +95,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
 }

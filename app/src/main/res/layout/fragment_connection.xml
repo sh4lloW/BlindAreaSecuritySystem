@@ -8,12 +8,12 @@
 
     <Switch
         android:id="@+id/switch_light"
-        android:layout_width="180dp"
-        android:layout_height="120dp"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="260dp"
         android:text="投影灯"
-        android:textSize="16dp"
+        android:textSize="12dp"
         android:textStyle="bold"
         android:typeface="monospace"
         android:drawableStart="@mipmap/ic_light"
@@ -60,12 +60,12 @@
 
     <Switch
         android:id="@+id/switch_system"
-        android:layout_width="180dp"
-        android:layout_height="120dp"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="424dp"
         android:text="护翼安全系统"
-        android:textSize="16dp"
+        android:textSize="12dp"
         android:textStyle="bold"
         android:typeface="monospace"
         android:drawableStart="@mipmap/ic_system"
@@ -74,20 +74,36 @@
         app:layout_constraintTop_toTopOf="@+id/linearLayout" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="180dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="242dp"
-        android:text="电量"
-        android:textSize="16dp"
+        android:id="@+id/text_view_lightning"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="260dp"
+        android:text="电量  80%"
+        android:textSize="14sp"
         android:textStyle="bold"
         android:typeface="monospace"
-
-        android:drawableStart="@mipmap/ic_lightning"
+        android:gravity="center_vertical"
         android:background="@drawable/main_card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/switch_light"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        app:drawableStartCompat="@mipmap/ic_lightning" />
+
+    <TextView
+        android:id="@+id/text_view_display"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
+        android:background="@drawable/main_card"
+        android:gravity="center_vertical"
+        android:text="盲区障碍显示中"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        app:drawableStartCompat="@mipmap/ic_screen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/switch_system"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="429dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
