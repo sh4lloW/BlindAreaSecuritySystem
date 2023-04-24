@@ -69,9 +69,8 @@ public class LoginActivity extends AppCompatActivity {
                     if (dbPassword.equals(passwordText)) {
                         Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_LONG).show();
 
-                        //TODO 跳转主页面
-//                        Intent intent = new Intent(LoginActivity.this, Bottomnav.class);
-//                        startActivity(intent);
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
 
                         LoginActivity.this.finish();
                     }else {
