@@ -100,10 +100,10 @@
         android:textStyle="bold"
         android:typeface="monospace"
         app:drawableStartCompat="@mipmap/ic_screen"
+        app:layout_constraintBottom_toBottomOf="@+id/switch_system"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/switch_system"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="429dp" />
+
+        app:layout_constraintStart_toEndOf="@+id/switch_system" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
