@@ -1,5 +1,6 @@
 package com.example.blindareasecuritysystem.Fragment;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Spinner;
+import android.widget.Switch;
 
 import com.example.blindareasecuritysystem.Adapter.xialaAdapt;
 import com.example.blindareasecuritysystem.R;
