@@ -2,6 +2,8 @@ package com.example.blindareasecuritysystem.Activity;
 
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
 import android.widget.MediaController;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -14,6 +16,8 @@ import com.example.blindareasecuritysystem.Utils.LoadData;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class LightActivity extends AppCompatActivity {
 
@@ -38,30 +42,34 @@ public class LightActivity extends AppCompatActivity {
         videoView.requestFocus();
         videoView.start();
 
-        // 双盲区的坐标数据
-        List<Point> rightAreaList = new ArrayList<>();
-        List<Point> leftAreaList = new ArrayList<>();
-        // 填充数据
-        LoadData.loadRightBlindAreaData(rightAreaList);
-        LoadData.loadLeftBlindAreaData(leftAreaList);
-        // 进行判定
-        for (int i = 0; i < rightAreaList.size() && i < leftAreaList.size(); i++) {
-            // 如果左右盲区超过一定范围
-            if (rightAreaList.get(i).getX() > 2.5 && rightAreaList.get(i).getY() > 5.8 && leftAreaList.get(i).getX() > 2.5 && leftAreaList.get(i).getY() > 5.8) {
-                // 弹出警告信息
-                Toast.makeText(LightActivity.this, "Warning!", Toast.LENGTH_LONG).show();
-                break;
-            }
-            // 每3秒进行一次盲区鉴定，让线程睡3秒
-            // 这里如果为了精确且保证竞争到资源，可以用Timer +TimeTask结合的形式，但在后台运行会有影响
-            new Thread(() -> {
+        // 判定任务在子线程中完成
+        new Thread(() -> {
+            // 双盲区的坐标数据
+            List<Point> rightAreaList = new ArrayList<>();
+            List<Point> leftAreaList = new ArrayList<>();
+            // 填充数据
+            LoadData.loadRightBlindAreaData(rightAreaList);
+            LoadData.loadLeftBlindAreaData(leftAreaList);
+            // 进行判定
+            for (int i = 0; i < rightAreaList.size() && i < leftAreaList.size(); i++) {
+                // 如果左右盲区超过一定范围
+                if (rightAreaList.get(i).getX() > 2.5 && rightAreaList.get(i).getY() > 5.8 && leftAreaList.get(i).getX() > 2.5 && leftAreaList.get(i).getY() > 5.8) {
+                    // Looper这两行必须加，这样才能创建消息队列让toast在线程中完成
+                    Looper.prepare();
+                    // 弹出警告信息
+                    Toast.makeText(LightActivity.this, "Warning!", Toast.LENGTH_LONG).show();
+                    Looper.loop();
+                    break;
+                }
+                // 每3s对数据进行一次检测，这里直接让线程睡眠3s
+                // 更为精确的做法是用Timer和TimeTask，但这不适合后台定时
                 try {
-                    Thread.sleep(3000);
+                    Thread.sleep(3000L);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            }).start();
-        }
+            }
+        }).start();
 
     }
 
