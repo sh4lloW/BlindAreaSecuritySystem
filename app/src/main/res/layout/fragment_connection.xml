@@ -6,12 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.ConnectionFragment">
 
-    <Switch
-        android:id="@+id/switch_light"
+    <TextView
+        android:id="@+id/text_light"
         android:layout_width="160dp"
         android:layout_height="100dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="260dp"
+        android:gravity="center_vertical"
         android:background="@drawable/main_card"
         android:drawableStart="@mipmap/ic_light"
         android:text="投影灯"
@@ -58,12 +59,13 @@
 
     </LinearLayout>
 
-    <Switch
-        android:id="@+id/switch_system"
+    <TextView
+        android:id="@+id/text_system"
         android:layout_width="160dp"
         android:layout_height="100dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="424dp"
+        android:gravity="center_vertical"
         android:text="护翼安全系统"
         android:textSize="12dp"
         android:textStyle="bold"
@@ -71,7 +73,8 @@
         android:drawableStart="@mipmap/ic_system"
         android:background="@drawable/main_card"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        android:onClick="toLight"/>
 
     <TextView
         android:id="@+id/text_view_lightning"
@@ -85,7 +88,7 @@
         android:gravity="center_vertical"
         android:background="@drawable/main_card"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/switch_light"
+        app:layout_constraintStart_toEndOf="@+id/text_light"
         app:layout_constraintTop_toTopOf="@+id/linearLayout"
         app:drawableStartCompat="@mipmap/ic_lightning" />
 
@@ -100,10 +103,10 @@
         android:textStyle="bold"
         android:typeface="monospace"
         app:drawableStartCompat="@mipmap/ic_screen"
-        app:layout_constraintBottom_toBottomOf="@+id/switch_system"
+        app:layout_constraintBottom_toBottomOf="@+id/text_system"
         app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintStart_toEndOf="@+id/switch_system" />
+        app:layout_constraintStart_toEndOf="@+id/text_system" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

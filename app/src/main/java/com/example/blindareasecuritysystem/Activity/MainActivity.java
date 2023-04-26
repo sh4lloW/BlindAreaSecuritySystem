@@ -1,6 +1,7 @@
 package com.example.blindareasecuritysystem.Activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -94,6 +95,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void toLight(View view) {
+        Intent intent = new Intent(MainActivity.this, LightActivity.class);
+        startActivity(intent);
     }
 
 
