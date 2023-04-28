@@ -58,7 +58,7 @@ public class SystemActivity extends AppCompatActivity {
         videoView.start();
 
         // LinearLayout用来装底部滑出式弹幕
-        container = findViewById(R.id.barrier_container);
+        container = findViewById(R.id.barrier_container_system);
         transition = new LayoutTransition();
 
         // 判定任务在子线程中完成
@@ -72,7 +72,7 @@ public class SystemActivity extends AppCompatActivity {
             // 进行判定
             for (int i = 0; i < rightAreaList.size() && i < leftAreaList.size(); i++) {
                 // 如果左右盲区超过一定范围
-                if (rightAreaList.get(i).getX() > 2.5 && rightAreaList.get(i).getY() > 5.8 && leftAreaList.get(i).getX() > 2.5 && leftAreaList.get(i).getY() > 5.8) {
+                if (rightAreaList.get(i).getX() >= 2.5 && rightAreaList.get(i).getY() >= 5.8 && leftAreaList.get(i).getX() >= 2.5 && leftAreaList.get(i).getY() >= 5.8) {
                     // 加载警告信息动画
                     loadAnimation();
                     handler.sendEmptyMessage(0);
@@ -96,15 +96,15 @@ public class SystemActivity extends AppCompatActivity {
         animator.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animator) {
-                // 展示超过4条后删除
-                if (container.getChildCount() == 4) {
+                // 展示超过3条后删除
+                if (container.getChildCount() == 3) {
                     handler.sendEmptyMessage(1);
                 }
             }
 
             @Override
             public void onAnimationEnd(Animator animator) {
-                if (container.getChildCount() == 6) {
+                if (container.getChildCount() == 4) {
                     handler.sendEmptyMessage(2);
                 }
 
@@ -134,7 +134,6 @@ public class SystemActivity extends AppCompatActivity {
     Pools.SimplePool<TextView> textViewSimplePool = new Pools.SimplePool<>(texts.length);
     // 用以停止显示循环
     int text_index = 0;
-    boolean flag = true;
 
     @SuppressLint("ResourceAsColor")
     private TextView obtainTextView() {
@@ -184,11 +183,11 @@ public class SystemActivity extends AppCompatActivity {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 0:
-                    // 此时text_index的判断条件为提示条数+1
+                    // 此时text_index的判断条件为提示条数
                     if (text_index < 5) {
                         TextView textView = obtainTextView();
                         container.addView(textView);
-                        sendEmptyMessageDelayed(0, 2000);
+                        sendEmptyMessageDelayed(0, 3000);
                         index++;
                         if (index == 5) {
                             index = 0;

@@ -88,10 +88,19 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void toLight(View view) {
+    public void toSystem(View view) {
         Intent intent = new Intent(MainActivity.this, SystemActivity.class);
         startActivity(intent);
     }
 
+    public void toLight(View view) {
+        Intent intent = new Intent(MainActivity.this, LightActivity.class);
+        startActivity(intent);
+    }
+
+    public void toBlindAreaDisplay(View view) {
+        Intent intent = new Intent(MainActivity.this, BlindAreaDisplayActivity.class);
+        startActivity(intent);
+    }
 
 }

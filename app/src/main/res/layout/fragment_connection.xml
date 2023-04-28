@@ -20,7 +20,8 @@
         android:textStyle="bold"
         android:typeface="monospace"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        android:onClick="toLight"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -74,7 +75,7 @@
         android:background="@drawable/main_card"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        android:onClick="toLight"/>
+        android:onClick="toSystem"/>
 
     <TextView
         android:id="@+id/text_view_lightning"
@@ -105,8 +106,8 @@
         app:drawableStartCompat="@mipmap/ic_screen"
         app:layout_constraintBottom_toBottomOf="@+id/text_system"
         app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintStart_toEndOf="@+id/text_system" />
+        app:layout_constraintStart_toEndOf="@+id/text_system"
+        android:onClick="toBlindAreaDisplay"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

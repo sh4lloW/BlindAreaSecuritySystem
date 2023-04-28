@@ -24,4 +24,15 @@
         android:layout_height="400dp"
         android:background="@mipmap/five_blind_area" />
 
+    <LinearLayout
+        android:id="@+id/barrier_container_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:divider="@drawable/divider"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:padding="30dp"
+        android:showDividers="middle" />
+
 </RelativeLayout>
