@@ -75,6 +75,7 @@ public class SystemActivity extends AppCompatActivity {
                 if (rightAreaList.get(i).getX() > 2.5 && rightAreaList.get(i).getY() > 5.8 && leftAreaList.get(i).getX() > 2.5 && leftAreaList.get(i).getY() > 5.8) {
                     // 加载警告信息动画
                     loadAnimation();
+                    handler.sendEmptyMessage(0);
                     break;
                 }
                 // 每3s对数据进行一次检测，这里直接让线程睡眠3s
@@ -91,9 +92,6 @@ public class SystemActivity extends AppCompatActivity {
     }
 
     private void loadAnimation() {
-        new Thread(() -> {
-            SystemClock.sleep(15000L);
-        }).start();
         ObjectAnimator animator = ObjectAnimator.ofFloat(null, "alpha", 0, 1);
         animator.addListener(new Animator.AnimatorListener() {
             @Override
@@ -213,16 +211,10 @@ public class SystemActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        new Handler().postDelayed(() -> {
-            handler.sendEmptyMessage(0);
-        }, 15000L);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        new Handler().postDelayed(() -> {
-            handler.sendEmptyMessage(0);
-        }, 15000L);
     }
 }
