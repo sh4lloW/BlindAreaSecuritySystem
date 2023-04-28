@@ -32,15 +32,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity.HiCarActivity"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="huawei.intent.action.HICAR" />
-
-                <category android:name="huawei.intent.category.HICAR" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".Activity.RegisterActivity"
             android:exported="false" />
         <activity
@@ -53,6 +44,10 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="huawei.intent.action.HICAR" />
+                <action android:name="huawei.intent.category.HICAR" />
             </intent-filter>
         </activity>
 

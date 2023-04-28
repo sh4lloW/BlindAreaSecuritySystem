@@ -99,6 +99,7 @@ public class LightActivity extends AppCompatActivity {
             "障碍物坐标为：" + loadWarningPoint(6).toString(),
             "障碍物坐标为：" + loadWarningPoint(7).toString(),
             "障碍物坐标为：" + loadWarningPoint(8).toString(),
+            "障碍物坐标为：" + loadWarningPoint(9).toString(),
     };
 
     Pools.SimplePool<TextView> textViewSimplePool = new Pools.SimplePool<>(texts.length);
@@ -154,7 +155,7 @@ public class LightActivity extends AppCompatActivity {
             switch (msg.what) {
                 case 0:
                     // 此时text_index的判断条件为提示条数
-                    if (text_index < 4) {
+                    if (text_index < 5) {
                         TextView textView = obtainTextView();
                         container.addView(textView);
                         sendEmptyMessageDelayed(0, 3000);
