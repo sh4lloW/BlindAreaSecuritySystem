@@ -5,6 +5,7 @@ import android.animation.LayoutTransition;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.annotation.SuppressLint;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,9 +16,11 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.widget.LinearLayout;
 import android.widget.MediaController;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.util.Pools;
@@ -48,8 +51,16 @@ public class SystemActivity extends AppCompatActivity {
 
         // 加载指定路径的视频
         // 如果要修改的话就把视频文件拖进raw包下，然后修改下行最后的视频名字
-        String path = "android.resource://" + getPackageName() + "/" + R.raw.test;
+        String path = "android.resource://" + getPackageName() + "/" + R.raw.outside;
         videoView.setVideoPath(path);
+        // 视频撑满
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        videoView.setLayoutParams(layoutParams);
+
         // 创建MediaController，建立关联
         MediaController mediaController = new MediaController(SystemActivity.this);
         videoView.setMediaController(mediaController);
@@ -87,7 +98,6 @@ public class SystemActivity extends AppCompatActivity {
                 }
             }
         }).start();
-
 
     }
 
