@@ -23,7 +23,9 @@ public class VedioActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vedio);
+        //导入模拟数据
         initFruits();
+        //获取布局组件
         recyclerView = (RecyclerView) findViewById(R.id.recycle_view);
         mLinearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLinearLayoutManager);
@@ -38,9 +40,10 @@ public class VedioActivity extends AppCompatActivity  {
 
     //模拟数据
     private void initFruits() {
-        Vedio T1 = new Vedio("时间:2001.12.1", R.drawable._is_looking,"危险分数:28");
+        int i=1;
+        Vedio T1 = new Vedio("时间:2001.12.1", R.drawable._is_looking,"危险分数:28",i++);
         mFruitList.add(T1);
-        Vedio T2 = new Vedio("时间:2001.12.12",R.drawable.is_danger,"危险分数:30");
+        Vedio T2 = new Vedio("时间:2001.12.12",R.drawable.is_danger,"危险分数:30",i++);
         mFruitList.add(T2);
 
     }
