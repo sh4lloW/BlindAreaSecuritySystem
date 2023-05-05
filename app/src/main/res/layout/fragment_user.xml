@@ -143,7 +143,9 @@
             android:drawableStart="@drawable/is_danger"
             android:paddingLeft="20px"
             android:text="高风险路段记录"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:onClick="tovedio"
+            />
 
         <TextView
                 android:layout_width="match_parent"
@@ -151,7 +153,9 @@
                 android:layout_weight="1"
                 android:drawableEnd="@drawable/is_right"
                 android:gravity="center_vertical|right"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:onClick="tovedio"
+            />
 
         </LinearLayout>
 
@@ -167,7 +171,9 @@
                 android:drawableStart="@drawable/is_photo"
                 android:paddingLeft="20px"
                 android:text="路况抓拍情况"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:onClick="tovedio"
+                />
 
             <TextView
                 android:layout_width="match_parent"

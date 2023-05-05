@@ -98,7 +98,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, LightActivity.class);
         startActivity(intent);
     }
-
+    public void tovedio(View view) {
+        Intent intent = new Intent(MainActivity.this, VedioActivity.class);
+        startActivity(intent);
+    }
     public void toBlindAreaDisplay(View view) {
         Intent intent = new Intent(MainActivity.this, BlindAreaDisplayActivity.class);
         startActivity(intent);
