@@ -4,10 +4,12 @@ public class Vedio {
     private String name;
     private String score;
     private int head;
-    public Vedio(String name, int head, String score) {
+    private int position;
+    public Vedio(String name, int head, String score,int position) {
         this.name = name;
         this.head = head;
         this.score = score;
+        this.position = position;
     }
 
     public String getName() {
@@ -17,4 +19,5 @@ public class Vedio {
     public int getHead(){
         return  head;
     }
+    public int getposition() { return position;}
 }

@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.blindareasecuritysystem.Activity.LightActivity;
 import com.example.blindareasecuritysystem.Activity.MainActivity;
 import com.example.blindareasecuritysystem.Activity.VedioActivity;
 import com.example.blindareasecuritysystem.R;
@@ -48,32 +49,40 @@ public class VedioAdapter extends RecyclerView.Adapter<VedioAdapter.ViewHolder>{
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        private  int positon;
         private TextView mTextView;
         private TextView xTextView;
         private ImageView mim;
-
         public ViewHolder(View itemView) {
             super(itemView);
-            positon = getPosition();
             mTextView = (TextView) itemView.findViewById(R.id.name);
             xTextView = (TextView) itemView.findViewById(R.id.score);
             mim = (ImageView) itemView.findViewById(R.id.imageView);
-            itemView.setOnClickListener(new View.OnClickListener() {
+            Intent intent = new Intent();
+            intent.setClass(itemView.getContext(), LightActivity.class);
+            xTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(itemView.getContext(),"dianji" ,Toast.LENGTH_LONG).show();
-
+                    Toast.makeText(xTextView.getContext(),xTextView.getText() ,Toast.LENGTH_LONG).show();
+                    itemView.getContext().startActivity(intent);
                 }
             });
-
+            //跳转到对应视频的播放页
             mim.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(itemView.getContext(),"dianji"+positon,Toast.LENGTH_LONG).show();
+                    Toast.makeText(mim.getContext(),mTextView.getText()+"的视频",Toast.LENGTH_LONG).show();
+
+                    itemView.getContext().startActivity(intent);
+                }
+
+            });
+            mTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(mTextView.getContext(),mTextView.getText() ,Toast.LENGTH_LONG).show();
+                    itemView.getContext().startActivity(intent);
                 }
             });
-
         }
     }
 
