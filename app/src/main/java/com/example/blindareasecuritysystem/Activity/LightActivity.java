@@ -18,7 +18,10 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.MediaController;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -31,18 +34,43 @@ import java.util.List;
 
 public class LightActivity extends AppCompatActivity {
 
+    private VideoView videoView;
+
     private ImageView imageView;
 
     private LinearLayout container;
     private LayoutTransition transition;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_light);
 
+        // 绑定
+        videoView = findViewById(R.id.video_view_inside);
+
+        // 加载指定路径的视频
+        // 如果要修改的话就把视频文件拖进raw包下，然后修改下行最后的视频名字
+        String path = "android.resource://" + getPackageName() + "/" + R.raw.inside;
+        videoView.setVideoPath(path);
+        // 视频撑满
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        videoView.setLayoutParams(layoutParams);
+
+        // 创建MediaController，建立关联
+        MediaController mediaController = new MediaController(LightActivity.this);
+        videoView.setMediaController(mediaController);
+        // 获取焦点
+        videoView.requestFocus();
+        videoView.start();
+
         // 动图要用Glide加载，把下面的注释取消然后在load()中填入gif的路径
-        imageView = findViewById(R.id.red_blink);
+//        imageView = findViewById(R.id.red_blink);
 //        Glide.with(LightActivity.this)
 //                .load()
 //                .asGif()
