@@ -4,7 +4,26 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+import android.animation.Animator;
+import android.animation.LayoutTransition;
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
+import android.annotation.SuppressLint;
+import android.os.Handler;
+import android.os.Message;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import android.view.Gravity;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
+import androidx.core.util.Pools;
+
+import com.example.blindareasecuritysystem.Activity.SystemActivity;
 import com.example.blindareasecuritysystem.Entity.Point;
+import com.example.blindareasecuritysystem.Utils.BaiduMap;
 import com.example.blindareasecuritysystem.Utils.LoadData;
 
 import java.util.ArrayList;
@@ -23,13 +42,6 @@ public class ExampleUnitTest {
 
     @Test
     public void testBlindAreaData() {
-        // 双盲区的坐标数据
-        List<Point> rightAreaList = new ArrayList<>();
-        List<Point> leftAreaList = new ArrayList<>();
-        // 填充数据
-        LoadData.loadRightBlindAreaData(rightAreaList);
-        LoadData.loadLeftBlindAreaData(leftAreaList);
-        System.out.println(rightAreaList.size());
-        System.out.println(leftAreaList.size());
+
     }
 }

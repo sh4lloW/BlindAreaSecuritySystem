@@ -147,7 +147,7 @@ public class BlindAreaDisplayActivity extends AppCompatActivity {
             textView.setMaxLines(1);
             textView.setEllipsize(TextUtils.TruncateAt.END);
             textView.setGravity(Gravity.CENTER);
-            textView.setTextSize(15);
+            textView.setTextSize(20);
         }
         // textView.setBackgroundDrawable(ContextCompat.getDrawable(SystemActivity.this, R.drawable.text_view_border));
         switch (index) {

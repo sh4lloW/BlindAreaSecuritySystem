@@ -20,6 +20,7 @@
             android:exported="false" />
         <activity
             android:name=".Activity.LightActivity"
+            android:screenOrientation="landscape"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -44,6 +45,7 @@
             android:exported="false" />
         <activity
             android:name=".Activity.MainActivity"
+            android:screenOrientation="landscape"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
