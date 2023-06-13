@@ -10,7 +10,7 @@
         android:id="@+id/text_light"
         android:layout_width="200dp"
         android:layout_height="160dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginStart="44dp"
         android:background="@drawable/main_card"
         android:drawableStart="@mipmap/ic_light"
         android:gravity="center_vertical"
@@ -19,51 +19,33 @@
         android:textSize="22dp"
         android:textStyle="bold"
         android:typeface="monospace"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="618dp"
-        android:layout_height="211dp"
-        android:layout_marginTop="4dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintVertical_bias="0.622" />
 
-        <Spinner
-            android:id="@+id/feature"
-            android:layout_width="200dp"
-            android:layout_height="64dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="40dp"
-            android:dropDownVerticalOffset="64dp"
-
-            android:entries="@array/feature"
-            android:spinnerMode="dropdown" />
-
-        <SearchView
-            android:id="@+id/search_main"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/searchview_line"
-            android:queryHint="Search">
-
-        </SearchView>
-
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/text_view_lightning"
+        android:layout_width="200dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="80dp"
+        android:background="@drawable/main_card"
+        android:gravity="center_vertical"
+        android:text="电量  80%"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        app:drawableStartCompat="@mipmap/ic_lightning"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_light"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.622" />
 
     <TextView
         android:id="@+id/text_system"
         android:layout_width="200dp"
         android:layout_height="160dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginStart="80dp"
         android:background="@drawable/main_card"
         android:drawableStart="@mipmap/ic_system"
         android:gravity="center_vertical"
@@ -72,30 +54,16 @@
         android:textSize="22dp"
         android:textStyle="bold"
         android:typeface="monospace"
-        app:layout_constraintStart_toStartOf="@+id/text_light"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
-
-    <TextView
-        android:id="@+id/text_view_lightning"
-        android:layout_width="200dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="260dp"
-        android:background="@drawable/main_card"
-        android:gravity="center_vertical"
-        android:text="电量  80%"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:typeface="monospace"
-        app:drawableStartCompat="@mipmap/ic_lightning"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.396"
-        app:layout_constraintStart_toEndOf="@+id/text_light"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_view_lightning"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.622" />
 
     <TextView
         android:id="@+id/text_view_display"
         android:layout_width="200dp"
         android:layout_height="160dp"
+        android:layout_marginStart="80dp"
         android:background="@drawable/main_card"
         android:gravity="center_vertical"
         android:onClick="toBlindAreaDisplay"
@@ -104,10 +72,24 @@
         android:textStyle="bold"
         android:typeface="monospace"
         app:drawableStartCompat="@mipmap/ic_screen"
-        app:layout_constraintBottom_toBottomOf="@+id/text_system"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_system"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.622" />
+
+    <Spinner
+        android:id="@+id/feature"
+        android:layout_width="333dp"
+        android:layout_height="73dp"
+        android:dropDownVerticalOffset="64dp"
+
+        android:entries="@array/feature"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.395"
-        app:layout_constraintStart_toEndOf="@+id/text_system" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.021" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

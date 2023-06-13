@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/navigation_look"
-        android:icon="@drawable/_is_looking"
+        android:icon="@mipmap/wheel"
         android:title="@string/title_look"
         />
     <item

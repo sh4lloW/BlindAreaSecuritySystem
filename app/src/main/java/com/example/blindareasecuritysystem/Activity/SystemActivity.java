@@ -14,6 +14,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.MediaController;
 import android.widget.RelativeLayout;
@@ -21,7 +22,9 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.util.Pools;
 
@@ -40,6 +43,9 @@ public class SystemActivity extends AppCompatActivity {
     private LinearLayout container;
     private LayoutTransition transition;
 
+    private Toolbar toolbar;
+    private ActionBar actionBar;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +54,14 @@ public class SystemActivity extends AppCompatActivity {
 
         // 绑定
         videoView = findViewById(R.id.video_view);
+        toolbar = findViewById(R.id.back_button);
+
+        // 显示返回按钮
+        actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         // 加载指定路径的视频
         // 如果要修改的话就把视频文件拖进raw包下，然后修改下行最后的视频名字
@@ -215,6 +229,17 @@ public class SystemActivity extends AppCompatActivity {
             }
         }
     };
+
+    // 标题栏按钮监听
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //返回按钮点击事件
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 
     @Override
